@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['TIME_KEEPER_API_DB_NAME'] %>
+  username: <%= ENV['TIME_KEEPER_API_DB_USERNAME'] %>
+  password: <%= ENV['TIME_KEEPER_API_DB_PASSWORD'] %>
+  host: <%= ENV['TIME_KEEPER_API_DB_HOSTNAME'] %>
+  port: <%= ENV['TIME_KEEPER_API_DB_PORT'] %>
+  pool: <%= ENV['TIME_KEEPER_API_DB_POOL'] %>
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+  database: timekeeper_api_development
+  username:
+  password:
+
+test:
+  <<: *default
+  database: timekeeper_api_test
+  pool: 5
+  username:
+  password:
