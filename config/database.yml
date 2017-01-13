@@ -1,25 +1,25 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
-development:
-  <<: *default
-  database: db/development.sqlite3
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['TIME_KEEPER_API_DB_NAME'] %>
+  username: <%= ENV['TIME_KEEPER_API_DB_USERNAME'] %>
+  password: <%= ENV['TIME_KEEPER_API_DB_PASSWORD'] %>
+  host: <%= ENV['TIME_KEEPER_API_DB_HOSTNAME'] %>
+  port: <%= ENV['TIME_KEEPER_API_DB_PORT'] %>
+  pool: <%= ENV['TIME_KEEPER_API_DB_POOL'] %>
 
 production:
   <<: *default
-  database: db/production.sqlite3
+
+development:
+  <<: *default
+  database: timekeeper_api_development
+  username:
+  password:
+
+test:
+  <<: *default
+  database: timekeeper_api_test
+  pool: 5
+  username:
+  password:
