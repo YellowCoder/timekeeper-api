@@ -252,7 +252,7 @@ DEPENDENCIES
   shoulda-callback-matchers (= 1.1.4)
   shoulda-matchers (= 3.1.1)
   sidekiq (= 4.2.7)
-  spring
+  spring (= 2.0.0)
   spring-watcher-listen (~> 2.0.0)
   terminal-notifier (= 1.7.1)
   terminal-notifier-guard (= 1.7.0)
