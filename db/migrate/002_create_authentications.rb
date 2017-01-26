@@ -1,10 +1,10 @@
 class CreateAuthentications < ActiveRecord::Migration[5.0]
   def change
     create_table :authentications do |t|
-      t.string :uid
-      t.string :provider
+      t.string :uid, null: false
+      t.string :provider, null: false
       t.references :user
-      t.timestamp
+      t.timestamps null: false
     end
   end
 end
