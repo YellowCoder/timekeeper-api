@@ -38,4 +38,5 @@ group :test do
   gem 'shoulda-matchers', '3.1.1'
   gem 'terminal-notifier', '1.7.1', require: false
   gem 'terminal-notifier-guard', '1.7.0', require: false
+  gem 'json-schema', '2.7.0'
 end

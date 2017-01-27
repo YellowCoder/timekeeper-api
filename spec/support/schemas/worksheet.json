@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "description": { "type": "string" },
+    "created_at": { "type": "string" },
+    "update_at": { "type": "string" }
+  }
+}
