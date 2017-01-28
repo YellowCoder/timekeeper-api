@@ -7,5 +7,10 @@ RSpec.shared_context 'graphql' do
       context: context
     )
     res.with_indifferent_access
+    res = res.with_indifferent_access
+    if res[:errors].present?
+      p res[:errors]
+    end
+    res
   end
 end

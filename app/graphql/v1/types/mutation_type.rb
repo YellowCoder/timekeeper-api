@@ -3,7 +3,7 @@ module V1
     MutationType = GraphQL::ObjectType.define do
       name 'Mutation'
 
-      field :sign_out, field: V1::Mutations::SignUp::Create.field
+      field :sign_up, field: V1::Mutations::SignUp::Create.field
     end
   end
 end
