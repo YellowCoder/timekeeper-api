@@ -1,11 +1,11 @@
 module V1
   module Types
     WorksheetType = GraphQL::ObjectType.define do
-      name 'User type'
-      description 'User type'
+      name 'Worksheet type'
+      description 'Worksheet type'
 
       field :id, !types.ID
-      field :type, !types.String
+      field :action, !types.String
       field :description, types.String
       field :created_at, !types.String
       field :updated_at, !types.String

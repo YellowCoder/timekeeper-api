@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe V1::Mutations::SignUpMutations do
+Rspec.describe V1::Mutations::SignUp do
   include_context 'graphql'
 
   let(:user) { build(:user) }

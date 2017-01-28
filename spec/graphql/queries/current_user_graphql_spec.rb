@@ -21,6 +21,6 @@ Rspec.describe V1::Types::UserType do
   end
 
   context 'Response schema' do
-    it { match_response_schema(:user, result[:data][:user]) }
+    it { match_response_schema(:user, result[:data][:current_user]) }
   end
 end

@@ -4,8 +4,18 @@ module V1
       name 'Query'
       description 'Query'
 
-      field :users do
+      field :current_user do
         type UserType
+        resolve lambda { |_obj, _args, ctx|
+          ctx[:current_user]
+        }
+      end
+
+      field :worksheets do
+        type types[WorksheetType]
+        resolve lambda { |_obj, _args, ctx|
+          ctx[:current_user].worksheets
+        }
       end
     end
   end

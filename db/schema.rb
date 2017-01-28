@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "worksheets", force: :cascade do |t|
-    t.string   "type"
+    t.string   "action",      null: false
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

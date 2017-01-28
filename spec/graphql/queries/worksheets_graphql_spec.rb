@@ -8,7 +8,7 @@ Rspec.describe V1::Types::WorksheetType do
       query _ {
         worksheets{
           id
-          type
+          action
           description
           created_at
           updated_at
@@ -18,6 +18,10 @@ Rspec.describe V1::Types::WorksheetType do
   end
 
   context 'Response schema' do
-    it { match_response_schema(:worksheet, result[:data][:worksheets], list: true) }
+    it do
+      create(:worksheet, user: user)
+      p result
+      match_response_schema(:worksheet, result[:data][:worksheets], list: true)
+    end
   end
 end

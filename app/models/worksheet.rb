@@ -3,7 +3,7 @@ class Worksheet < ApplicationRecord
   belongs_to :user
 
   # Extensions
-  enum type: [:enter, :leave, :pause]
+  enum action: [:enter, :leave, :pause]
 
   # Validations
   validates :user, presence: true

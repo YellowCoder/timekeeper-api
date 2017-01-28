@@ -8,6 +8,6 @@
     "sso_token": { "type": "string" },
     "sso_provider": { "type": "string" },
     "created_at": { "type": "string" },
-    "update_at": { "type": "string" }
+    "updated_at": { "type": "string" }
   }
 }
