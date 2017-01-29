@@ -1,6 +1,6 @@
 module V1
   module Mutations
-    module SignUp
+    module SignUpMutations
       Create = GraphQL::Relay::Mutation.define do
         name 'Sign up '
         description 'Sign up'
@@ -10,7 +10,8 @@ module V1
 
         return_field :user, V1::Types::UserType
 
-        resolve lambda { |inputs, ctx|
+        resolve lambda { |object, inputs, ctx|
+          p ctx[:current_user]
           { user: ctx[:current_user] }
         }
       end

@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "worksheets", force: :cascade do |t|
-    t.string   "action",      null: false
+    t.integer  "action",      default: 0, null: false
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_worksheets_on_user_id", using: :btree
   end
 

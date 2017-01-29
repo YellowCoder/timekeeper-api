@@ -20,7 +20,6 @@ Rspec.describe V1::Types::WorksheetType do
   context 'Response schema' do
     it do
       create(:worksheet, user: user)
-      p result
       match_response_schema(:worksheet, result[:data][:worksheets], list: true)
     end
   end

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-Rspec.describe V1::Mutations::SignUp do
+Rspec.describe V1::Mutations::SignUpMutations do
   include_context 'graphql'
 
-  let(:user) { build(:user) }
   let(:query) do
     %|
       mutation _ {
@@ -12,6 +11,11 @@ Rspec.describe V1::Mutations::SignUp do
             id
             name
             email
+            avatar_source
+            sso_token
+            sso_provider
+            created_at
+            updated_at
           }
         }
       }
@@ -19,6 +23,8 @@ Rspec.describe V1::Mutations::SignUp do
   end
 
   context 'Response schema' do
-    it { match_response_schema(:user, result[:data][:sign_up][:user]) }
+    it {
+      p result
+      match_response_schema(:user, result[:data][:sign_up][:user]) }
   end
 end
