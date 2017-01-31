@@ -11,7 +11,6 @@ module V1
         return_field :user, V1::Types::UserType
 
         resolve lambda { |object, inputs, ctx|
-          p ctx[:current_user]
           { user: ctx[:current_user] }
         }
       end
