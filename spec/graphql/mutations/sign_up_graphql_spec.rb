@@ -6,14 +6,11 @@ Rspec.describe V1::Mutations::SignUpMutations do
   let(:query) do
     %|
       mutation _ {
-        sign_up(input: {sso_provider: "#{user.sso_provider}", sso_token: "#{user.sso_token}"}) {
+        sign_up(input: {name: "#{user.name}", uuid: "#{user.uuid}"}) {
           user {
             id
             name
-            email
-            avatar_source
-            sso_token
-            sso_provider
+            uuid
             created_at
             updated_at
           }
@@ -23,8 +20,6 @@ Rspec.describe V1::Mutations::SignUpMutations do
   end
 
   context 'Response schema' do
-    it {
-      p result
-      match_response_schema(:user, result[:data][:sign_up][:user]) }
+    it { match_response_schema(:user, result[:data][:sign_up][:user]) }
   end
 end
