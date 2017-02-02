@@ -3,10 +3,7 @@
   "properties": {
     "id": { "type": "string" },
     "name": { "type": "string" },
-    "email": { "type": "string" },
-    "avatar_source": { "type": "string" },
-    "sso_token": { "type": "string" },
-    "sso_provider": { "type": "string" },
+    "uuid": { "type": "string" },
     "created_at": { "type": "string" },
     "updated_at": { "type": "string" }
   }

@@ -5,12 +5,8 @@ gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 gem 'pg', '0.19.0'
 gem 'graphql', '1.3.0'
-gem 'bcrypt-ruby', '3.1.5'
-gem 'email_validator', '1.6.0'
 
-gem 'figaro', '1.1.1'
 gem 'memoist', '0.15.0'
-gem 'cloudinary', '1.3.0'
 
 gem 'sidekiq', '4.2.7'
 
