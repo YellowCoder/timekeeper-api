@@ -9,10 +9,7 @@ Rspec.describe V1::Types::UserType do
         current_user{
           id
           name
-          email
-          avatar_source
-          sso_token
-          sso_provider
+          uuid
           created_at
           updated_at
         }

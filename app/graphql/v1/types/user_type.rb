@@ -6,10 +6,7 @@ module V1
 
       field :id, !types.ID
       field :name, !types.String
-      field :email, !types.String
-      field :avatar_source, types.String
-      field :sso_token, !types.String
-      field :sso_provider, !types.String
+      field :uuid, !types.String
       field :created_at, !types.String
       field :updated_at, !types.String
     end

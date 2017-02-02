@@ -1,10 +1,10 @@
 class V1::GraphqlController < ApplicationController
-  before_action :authentication_check
+  # before_action :authentication_check
 
   def create
     result_hash = V1::Schema.execute(
       params[:query],
-      variables: JSON.parse(params[:variables]),
+      variables: JSON.parse(params[:variables].to_json),
       context: {
         current_user: current_user
       }
@@ -15,7 +15,7 @@ class V1::GraphqlController < ApplicationController
   private
 
   def current_user
-    @current_user ||= User.find_by(sso_token: authentication_header)
+    @current_user ||= User.find_by(uuid: authentication_header)
   end
 
   def authentication_header

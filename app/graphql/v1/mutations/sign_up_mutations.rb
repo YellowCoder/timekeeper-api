@@ -5,13 +5,14 @@ module V1
         name 'Sign up '
         description 'Sign up'
 
-        input_field :sso_provider, types.String
-        input_field :sso_token, types.String
+        input_field :name, types.String
+        input_field :uuid, types.String
 
         return_field :user, V1::Types::UserType
 
-        resolve lambda { |object, inputs, ctx|
-          { user: ctx[:current_user] }
+        resolve ->(object, inputs, ctx) {
+          user = User.where(name: inputs[:name], uuid: inputs[:uuid]).first_or_create
+          { user: user }
         }
       end
     end
