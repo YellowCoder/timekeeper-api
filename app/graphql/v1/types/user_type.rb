@@ -7,6 +7,7 @@ module V1
       field :id, !types.ID
       field :name, !types.String
       field :uuid, !types.String
+      field :provider, !types.String
       field :created_at, !types.String
       field :updated_at, !types.String
     end

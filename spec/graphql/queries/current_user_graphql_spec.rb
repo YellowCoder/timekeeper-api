@@ -10,6 +10,7 @@ Rspec.describe V1::Types::UserType do
           id
           name
           uuid
+          provider
           created_at
           updated_at
         }

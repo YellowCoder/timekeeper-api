@@ -3,5 +3,8 @@ class User < ApplicationRecord
   has_many :worksheets, dependent: :destroy
 
   # Validations
-  validates :name, :uuid, presence: true
+  validates :name, :provider, presence: true
+  validates :uuid,
+            presence: true,
+            uniqueness: { case_sensitive: false, scope: :provider}
 end
