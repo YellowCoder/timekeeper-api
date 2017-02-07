@@ -4,6 +4,7 @@
     "id": { "type": "string" },
     "name": { "type": "string" },
     "uuid": { "type": "string" },
+    "provider": { "type": "string" },
     "created_at": { "type": "string" },
     "updated_at": { "type": "string" }
   }

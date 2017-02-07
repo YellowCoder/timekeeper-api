@@ -7,11 +7,16 @@ module V1
 
         input_field :name, types.String
         input_field :uuid, types.String
+        input_field :provider, types.String
 
         return_field :user, V1::Types::UserType
 
         resolve ->(object, inputs, ctx) {
-          user = User.where(name: inputs[:name], uuid: inputs[:uuid]).first_or_create
+          user = User.where(
+                   name: inputs[:name],
+                   uuid: inputs[:uuid],
+                   provider: inputs[:provider]
+                 ).first_or_create
           { user: user }
         }
       end
