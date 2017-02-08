@@ -1,10 +1,10 @@
 class V1::GraphqlController < ApplicationController
-  # before_action :authentication_check
+  before_action :authentication_check
 
   def create
     result_hash = V1::Schema.execute(
       params[:query],
-      variables: JSON.parse(params[:variables].to_json),
+      variables: variables,
       context: {
         current_user: current_user
       }
@@ -13,6 +13,11 @@ class V1::GraphqlController < ApplicationController
   end
 
   private
+
+  def variables
+    return {} if params[:variables].blank?
+    JSON.parse(params[:variables].to_json)
+  end
 
   def current_user
     @current_user ||= User.find_by(uuid: authentication_header)
@@ -23,7 +28,7 @@ class V1::GraphqlController < ApplicationController
   end
 
   def authentication_check
-    return if current_user.present?
+    return if params[:operationName] == 'Login' || current_user.present?
     render nothing: true, status: :unauthorized
   end
 end
