@@ -16,6 +16,7 @@ group :development, :test do
   gem 'rspec-rails', '3.5.2'
   gem 'guard-rspec', '4.7.3'
   gem 'rack-cors', require: 'rack/cors'
+  gem 'factory_girl_rails', '4.8.0'
 end
 
 group :development do
@@ -26,7 +27,6 @@ end
 
 group :test do
   gem 'database_cleaner', '1.5.3'
-  gem 'factory_girl_rails', '4.8.0'
   gem 'guard-bundler', '2.1.0'
   gem 'rspec-instrumentation-matcher', '0.0.4'
   gem 'rspec-its', '1.2.0'
