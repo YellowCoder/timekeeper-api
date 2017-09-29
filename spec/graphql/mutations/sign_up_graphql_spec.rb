@@ -6,12 +6,11 @@ Rspec.describe V1::Mutations::SignUpMutations do
   let(:query) do
     %|
       mutation _ {
-        sign_up(input: {name: "#{user.name}", uuid: "#{user.uuid}", provider: "google"}) {
+        sign_up(input: {email: "#{user.email}", password: "#{user.password}"}) {
           user {
             id
-            name
-            uuid
-            provider
+            email
+            password
             created_at
             updated_at
           }

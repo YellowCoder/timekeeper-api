@@ -8,9 +8,7 @@ Rspec.describe V1::Types::UserType do
       query _ {
         current_user{
           id
-          name
-          uuid
-          provider
+          email
           created_at
           updated_at
         }
