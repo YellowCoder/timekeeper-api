@@ -10,11 +10,12 @@ module V1
 
         return_field :user, V1::Types::UserType
 
-        resolve lambda { |inputs, _ctx|
-          user = User.where(
-                   email: inputs[:email],
-                   password: inputs[:password]
-                 ).first_or_create
+        resolve lambda { |_object, inputs, ctx|
+          user = User.where(email: inputs[:email]).first_or_initialize do |user|
+            user.passwrod = inputs[:password]
+          end
+          user.save if user.new_record?
+
           { user: user }
         }
       end

@@ -20,6 +20,8 @@ Rspec.describe V1::Mutations::SignUpMutations do
   end
 
   context 'Response schema' do
-    it { match_response_schema(:user, result[:data][:sign_up][:user]) }
+    it do
+      match_response_schema(:user, result[:data][:sign_up][:user], strict: false)
+    end
   end
 end
