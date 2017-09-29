@@ -1,13 +1,12 @@
 module V1
   module Types
     UserType = GraphQL::ObjectType.define do
-      name 'User type'
+      name 'UserType'
       description 'User type'
 
       field :id, !types.ID
-      field :name, !types.String
-      field :uuid, !types.String
-      field :provider, !types.String
+      field :email, !types.String
+      field :password, types.String
       field :created_at, !types.String
       field :updated_at, !types.String
     end

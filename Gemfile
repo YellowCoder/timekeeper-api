@@ -5,7 +5,8 @@ ruby '2.4.1'
 gem 'rails', '~> 5.0.1'
 gem 'puma', '3.10.0'
 gem 'pg', '0.21.0'
-gem 'graphql', '1.7.3'
+gem 'graphql', '1.6.6'
+gem 'bcrypt-ruby', '3.1.5'
 
 gem 'memoist', '0.16.0'
 

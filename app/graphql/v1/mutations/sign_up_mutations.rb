@@ -2,21 +2,20 @@ module V1
   module Mutations
     module SignUpMutations
       Create = GraphQL::Relay::Mutation.define do
-        name 'Sign up '
+        name 'SignUp '
         description 'Sign up'
 
-        input_field :name, types.String
-        input_field :uuid, types.String
-        input_field :provider, types.String
+        input_field :email, types.String
+        input_field :password, types.String
 
         return_field :user, V1::Types::UserType
 
-        resolve ->(object, inputs, ctx) {
-          user = User.where(
-                   name: inputs[:name],
-                   uuid: inputs[:uuid],
-                   provider: inputs[:provider]
-                 ).first_or_create
+        resolve lambda { |_object, inputs, ctx|
+          user = User.where(email: inputs[:email]).first_or_initialize do |user|
+            user.passwrod = inputs[:password]
+          end
+          user.save if user.new_record?
+
           { user: user }
         }
       end

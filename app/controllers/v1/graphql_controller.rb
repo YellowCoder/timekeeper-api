@@ -2,6 +2,8 @@ class V1::GraphqlController < ApplicationController
   before_action :authentication_check
 
   def create
+    variables = ensure_hash(params[:variables])
+
     result_hash = V1::Schema.execute(
       params[:query],
       variables: variables,
@@ -14,9 +16,21 @@ class V1::GraphqlController < ApplicationController
 
   private
 
-  def variables
-    return {} if params[:variables].blank?
-    JSON.parse(params[:variables].to_json)
+  def ensure_hash(ambiguous_param)
+    case ambiguous_param
+    when String
+      if ambiguous_param.present?
+        ensure_hash(JSON.parse(ambiguous_param))
+      else
+        {}
+      end
+    when Hash, ActionController::Parameters
+      ambiguous_param
+    when nil
+      {}
+    else
+      raise ArgumentError, "Unexpected parameter: #{ambiguous_param}"
+    end
   end
 
   def current_user

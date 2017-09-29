@@ -1,10 +1,12 @@
 class User < ApplicationRecord
+  # Extensions
+  has_secure_password validations: false
+
   # Relationship
   has_many :worksheets, dependent: :destroy
 
   # Validations
-  validates :name, :provider, presence: true
-  validates :uuid,
+  validates :email,
             presence: true,
-            uniqueness: { case_sensitive: false, scope: :provider}
+            uniqueness: { case_sensitive: false }
 end

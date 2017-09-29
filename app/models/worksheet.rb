@@ -1,10 +1,11 @@
 class Worksheet < ApplicationRecord
   # Relationship
   belongs_to :user
+  belongs_to :category
 
   # Extensions
-  enum action: [:enter, :leave, :pause]
+  enum action: [:start, :stop, :pause]
 
   # Validations
-  validates :user, presence: true
+  validates :user, :category, presence: true
 end

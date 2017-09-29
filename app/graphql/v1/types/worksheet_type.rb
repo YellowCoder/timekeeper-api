@@ -1,7 +1,7 @@
 module V1
   module Types
     WorksheetType = GraphQL::ObjectType.define do
-      name 'Worksheet type'
+      name 'WorksheetType'
       description 'Worksheet type'
 
       field :id, !types.ID
