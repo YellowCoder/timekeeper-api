@@ -12,7 +12,7 @@ module V1
 
         resolve lambda { |_object, inputs, ctx|
           user = User.where(email: inputs[:email]).first_or_initialize do |user|
-            user.passwrod = inputs[:password]
+            user.password = inputs[:password]
           end
           user.save if user.new_record?
 
