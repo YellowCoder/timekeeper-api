@@ -1,6 +1,6 @@
 include FactoryGirl::Syntax::Methods
 
-user = create(:user)
+user = create(:user, jwt_token: '123')
 study_category = create(:category, name: 'study')
 work_category = create(:category, name: 'work')
 

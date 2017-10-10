@@ -34,7 +34,7 @@ class V1::GraphqlController < ApplicationController
   end
 
   def current_user
-    @current_user ||= User.find_by(uuid: authentication_header)
+    @current_user ||= User.find_by(jwt_token: authentication_header)
   end
 
   def authentication_header

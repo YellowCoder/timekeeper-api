@@ -9,6 +9,7 @@ gem 'graphql', '1.6.6'
 gem 'bcrypt-ruby', '3.1.5'
 
 gem 'memoist', '0.16.0'
+gem 'jwt', '1.5.6'
 
 group :development, :test do
   gem 'byebug', '9.1.0', platform: :mri
