@@ -6,4 +6,3 @@ module V1
     resolve_type ->(_type, _obj, _ctx) {}
   end
 end
-
