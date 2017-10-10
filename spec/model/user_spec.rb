@@ -11,6 +11,7 @@ Rspec.describe User, type: :model do
     it { should have_db_column(:id).of_type(:integer) }
     it { should have_db_column(:email).of_type(:string).with_options(null: false) }
     it { should have_db_column(:password_digest).of_type(:string).with_options(null: false) }
+    it { should have_db_column(:timezone).of_type(:string).with_options(default: 'America/Sao_Paulo') }
     it { should have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
     it { should have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
   end

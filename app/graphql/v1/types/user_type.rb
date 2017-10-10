@@ -6,6 +6,7 @@ module V1
 
       field :id, !types.ID
       field :email, !types.String
+      field :timezone, !types.String
       field :password, types.String
       field :created_at, !types.String
       field :updated_at, !types.String
